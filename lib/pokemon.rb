@@ -1,6 +1,6 @@
 class Pokemon
   attr_reader :id, :name, :type, :db, :hp
-  attr_writer :hp`
+  attr_writer :hp
   def initialize(id: ,name:, type:, db:)
     @id = id
     @name = name
@@ -18,8 +18,8 @@ class Pokemon
   def self.find(id, db)
     #db.results_as_hash = true
     res = db.execute("select * from pokemon where id =?", id)[0]
-    self.new({id: res[0], name: res[1], type: res[2], db: db})
-    @hp = res[3]
+    obj = self.new({id: res[0], name: res[1], type: res[2], db: db})
+    obj.hp = res[3]
   end
   
   def alter_hp(hp, db)
