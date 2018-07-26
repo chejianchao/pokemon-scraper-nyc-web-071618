@@ -19,4 +19,9 @@ class Pokemon
     res = db.execute("select * from pokemon where id =?", id)[0]
     self.new({id: res[0], name: res[1], type: res[2], db: db})
   end
+  
+  def alter_hp(hp, db)
+    self.hp = hp
+    db.execute("update pokemon set hp=? where id=?", hp, self.id)
+  end
 end
