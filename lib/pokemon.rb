@@ -19,7 +19,7 @@ class Pokemon
     #db.results_as_hash = true
     res = db.execute("select * from pokemon where id =?", id)[0]
     obj = self.new({id: res[0], name: res[1], type: res[2], db: db})
-    obj.hp = res[3]
+    #obj.hp = res[3]
   end
   
   def alter_hp(hp, db)
