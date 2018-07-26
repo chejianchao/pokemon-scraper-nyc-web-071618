@@ -4,6 +4,7 @@ class Pokemon
     @id = id
     @name = name
     @type = type
+    @hp = hp
     #db.execute("insert into pokemon(id, name, type) values(?,?,?)", id, name, type)
   end
   
